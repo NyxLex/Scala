@@ -46,4 +46,11 @@ class RozetkaTest extends AnyFlatSpec with BeforeAndAfterAll with BeforeAndAfter
     searchResultsPage.verifyProductContainsCost()
   }
 
+  "User" should "be able to add product to comparison " in {
+    mainPage.clickOnCategory()
+    mainPage.clickOnIcon()
+    mainPage.clickOnComparisonIcon()
+    searchResultsPage.verifyComparisonElementIsNotEmpty()
+  }
+
 }

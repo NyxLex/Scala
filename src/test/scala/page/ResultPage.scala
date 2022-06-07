@@ -10,7 +10,7 @@ class ResultPage(private var driver: WebDriver) {
   val searchResult: By = By.className("goods-tile__title")
   val productTitle: By = By.className("product__title")
   val advertiseList: By = By.className("lite-tile__picture")
-  private val icon: By = By.xpath("//a[@href='https://rozetka.com.ua/notebooks/c80004/']")
+  private val headerComparison: By = By.xpath("//button[@class='header__button ng-star-inserted']")
 
   def verifyHeading(searchTerm: String): Unit = {
     assert(driver.findElement(heading).getText equals searchTerm)
@@ -34,6 +34,9 @@ class ResultPage(private var driver: WebDriver) {
     assert(!driver.findElements(moneyPreview).isEmpty)
   }
 
+  def verifyComparisonElementIsNotEmpty(): Unit = {
+    assert(!driver.findElements(headerComparison).isEmpty)
+  }
 
 
 

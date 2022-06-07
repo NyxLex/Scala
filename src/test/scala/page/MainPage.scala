@@ -7,7 +7,8 @@ class MainPage(private var driver: WebDriver) {
   private val search: By = By.name("search")
   private val icon: By = By.xpath("//a[@href='https://rozetka.com.ua/notebooks/c80004/']")
   private val product: By = By.className("tile__picture")
-  protected val categoryLink: By = By.xpath("(//a[@href='https://rozetka.com.ua/computers-notebooks/c80253/'])[2]")
+  private val categoryLink: By = By.xpath("(//a[@href='https://rozetka.com.ua/computers-notebooks/c80253/'])[2]")
+  private val comparisonIcon: By = By.xpath("//*[@class='compare-button ng-star-inserted']")
 
   def searchFor(searchTerm: String): Unit = {
     driver.findElement(search).sendKeys(searchTerm + Keys.RETURN)
@@ -24,6 +25,10 @@ class MainPage(private var driver: WebDriver) {
 
   def clickOnIcon(): Unit = {
     driver.findElement(icon).click()
+  }
+
+  def clickOnComparisonIcon(): Unit = {
+    driver.findElement(comparisonIcon).click()
   }
 
 
